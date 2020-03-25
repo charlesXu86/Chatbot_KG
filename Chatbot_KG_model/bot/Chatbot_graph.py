@@ -6,9 +6,9 @@
 @time: 2019/03/15 
 """
 
-from Question_classifier import *
-from Question_parser import *
-from Answer_search import *
+from Chatbot_KG_model.bot.Question_classifier import *
+from Chatbot_KG_model.bot.Question_parser import *
+from Chatbot_KG_model.bot.Answer_search import *
 
 '''问答类'''
 class ChatBotGraph:
@@ -18,7 +18,7 @@ class ChatBotGraph:
         self.searcher = AnswerSearcher()
 
     def chat_main(self, sent):
-        answer = '您好，我是小笨医药智能助理，希望可以帮到您。如果没答上来，可联系https://liuhuanyong.github.io/。祝您身体棒棒！'
+        answer = '您好，我是小笨医药智能助理，希望可以帮到您。祝您身体棒棒！'
         res_classify = self.classifier.classify(sent)
         if not res_classify:
             return answer
