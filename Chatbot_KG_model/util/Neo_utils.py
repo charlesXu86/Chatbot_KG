@@ -6,15 +6,24 @@
 @time: 2018/08/08
 """
 
+import logging
+
 from py2neo import Graph,Node,Relationship, NodeMatcher
+
+logger = logging.getLogger(__name__)
 
 class Neo4j():
 	graph = None
 	def __init__(self):
-		print("create neo4j class ...")
+		logger.info("create neo4j class ...")
+		# self.host = 'http://172.18.86.20:7474'
+		# self.username = 'neo4j'
+		# self.passwd = '123456'
+		# self.graph = Graph()
 
 	def connectDB(self):
-		self.graph = Graph("http://localhost:7474", username="neo4j", password="Aa123456")
+		self.graph = Graph("http://172.18.86.20:7474", username="neo4j", password="123456")
+		logger.info('Connect Neo4J successfully!')
 
 	def matchItembyTitle(self,value):
 		'''

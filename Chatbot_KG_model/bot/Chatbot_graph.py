@@ -10,8 +10,11 @@ from Chatbot_KG_model.bot.Question_classifier import *
 from Chatbot_KG_model.bot.Question_parser import *
 from Chatbot_KG_model.bot.Answer_search import *
 
-'''问答类'''
-class ChatBotGraph:
+
+class ChatBotGraph():
+    '''
+    问答类
+    '''
     def __init__(self):
         self.classifier = QuestionClassifier()
         self.parser = QuestionParser()
@@ -29,9 +32,9 @@ class ChatBotGraph:
         else:
             return '\n'.join(final_answers)
 
-if __name__ == '__main__':
-    handler = ChatBotGraph()
-    while 1:
-        question = input('用户:')
-        answer = handler.chat_main(question)
-        print('小笨:', answer)
+# if __name__ == '__main__':
+#     handler = ChatBotGraph()
+#     while 1:
+#         question = input('用户:')
+#         answer = handler.chat_main(question)
+#         print('小笨:', answer)

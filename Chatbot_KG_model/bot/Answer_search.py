@@ -6,20 +6,27 @@
 @time: 2019/03/15 
 """
 
-
+import logging
 from py2neo import Graph
+
+logger = logging.getLogger(__name__)
 
 class AnswerSearcher:
     def __init__(self):
         self.g = Graph(
-            host="127.0.0.1",
+            host="172.18.86.20",
             http_port=7474,
-            user="lhy",
-            password="lhy123")
+            user="neo4j",
+            password="123456")
         self.num_limit = 20
+        logger.info("Neo4j connect successfully!")
 
-    '''执行cypher查询，并返回相应结果'''
     def search_main(self, sqls):
+        '''
+        执行cypher查询，并返回相应结果
+        :param sqls:
+        :return:
+        '''
         final_answers = []
         for sql_ in sqls:
             question_type = sql_['question_type']
@@ -33,8 +40,13 @@ class AnswerSearcher:
                 final_answers.append(final_answer)
         return final_answers
 
-    '''根据对应的qustion_type，调用相应的回复模板'''
     def answer_prettify(self, question_type, answers):
+        '''
+        根据对应的qustion_type，调用相应的回复模板
+        :param question_type:
+        :param answers:
+        :return:
+        '''
         final_answer = []
         if not answers:
             return ''

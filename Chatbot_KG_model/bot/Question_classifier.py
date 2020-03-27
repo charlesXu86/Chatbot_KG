@@ -62,10 +62,15 @@ class QuestionClassifier:
 
         logger.info('model init finished ......')
 
-        return
+        # return
 
-    '''分类主函数'''
+
     def classify(self, question):
+        '''
+        分类主函数
+        :param question:
+        :return:
+        '''
         data = {}
         medical_dict = self.check_medical(question)
         if not medical_dict:
